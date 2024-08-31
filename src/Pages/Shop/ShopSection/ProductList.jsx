@@ -11,7 +11,7 @@ import { ProductFilterContext } from "../../../Contexts/ProductFilterContext";
 
 const ProductList = () => {
 
-  const {categoryFilter,gender,setGender,color} = useContext(ProductFilterContext);
+  const {categoryFilter,gender,color,priceMax,priceMin} = useContext(ProductFilterContext);
 
   const [pageNumber, setPageNumber] = useState(0);
   const [isProduct, setIsProduct] = useState(false);
@@ -38,13 +38,13 @@ const ProductList = () => {
 
   
 
-  // if (priceMax !== 0) {
-  //   queries = queries + `priceMax=${priceMax}&`;
-  // }
+  if (priceMax !== 0) {
+    queries = queries + `priceMax=${priceMax}&`;
+  }
 
-  // if (priceMin !== 0) {
-  //   queries = queries + `priceMin=${priceMin}&`;
-  // }
+  if (priceMin !== 0) {
+    queries = queries + `priceMin=${priceMin}&`;
+  }
 
   // if (style !== '') {
   //   queries = queries + `style=${style}&`;
@@ -76,7 +76,7 @@ const ProductList = () => {
 
   useEffect(() => {
     fetchData();
-  }, [categoryFilter,gender]);
+  }, [categoryFilter,gender,color,priceMax,priceMin]);
 
   const productsPerPage = 12;
   const pagesVisited = pageNumber * productsPerPage;

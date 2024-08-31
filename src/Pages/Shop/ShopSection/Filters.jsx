@@ -22,7 +22,15 @@ const Filters = () => {
   // product width expand
   const [prWidthEx, setPrWidthEx] = useState(false);
 
-  const {setCategoryFilter,setColor} = useContext(ProductFilterContext);
+  const {setCategoryFilter,setColor,setPriceMax,setPriceMin} = useContext(ProductFilterContext);
+
+  const handlePriceMin = (e) => {
+    setPriceMin(e.target.value);
+  }
+
+  const handlePriceMax = (e) => {
+    setPriceMax(e.target.value);
+  }
 
 
 
@@ -99,6 +107,7 @@ const Filters = () => {
                   id="from"
                   placeholder="0"
                   className="outline-none w-[100%]"
+                  onChange={handlePriceMin}
                 />
               </div>
             </div>
@@ -115,6 +124,7 @@ const Filters = () => {
                   id="to"
                   placeholder="0"
                   className="outline-none w-[100%]"
+                  onChange={handlePriceMax}
                 />
               </div>
             </div>
