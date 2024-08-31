@@ -1,0 +1,439 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.Poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.Outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.Mont {
+  font-family: "Montserrat", sans-serif;
+}
+
+.Inter {
+  font-family: "Inter", sans-serif;
+}
+
+.slide1 {
+  background-image: url(./assets/slide1.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide2 {
+  background-image: url(./assets/golds.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide3 {
+  background-image: url(./assets/neck.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+}
+.r1 {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-image: url(./assets/grid2.png);
+  @media screen and (max-width: 480px) {
+    width: 200px;
+    height: 100px;
+  }
+}
+
+.r2 {
+  display: flex;
+}
+
+.rc1 {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  background-size: cover;
+  background-image: url(./assets/grid3.png);
+  @media screen and (max-width: 480px) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.rc2 {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  background-size: cover;
+  background-image: url(./assets/grid4.png);
+  @media screen and (max-width: 480px) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.c2 {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+  background-size: cover;
+  background-image: url(./assets/grid1.png);
+  @media screen and (max-width: 480px) {
+    width: 100px;
+    height: 200px;
+  }
+}
+
+.Section4 {
+  background-image: url(./assets/section4.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Section6 {
+  background-image: url(./assets/section6.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.subShape {
+  clip-path: polygon(
+    28.32% 41.1%,
+    86.97% 45.36%,
+    100% 65.91%,
+    28.32% 69.42%,
+    19.3% 52.68%
+  );
+
+  background-color: #bf9522;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subShape span {
+  color: black;
+  text-align: center;
+}
+
+.footer {
+  background-color: #e6e6e6;
+}
+
+.s2 {
+  background-image: url(./assets/bgPhoto.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.btn {
+  clip-path: polygon(
+    27.73% 24.31%,
+    89.38% 31.83%,
+    98.65% 65.46%,
+    9.02% 65.46%,
+    4.26% 40.6%
+  );
+  background-color: #000000;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.bg2 {
+  background-image: url(./assets/bg2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.link {
+  cursor: pointer;
+  position: relative;
+  color: #d1d1d1;
+
+  font-weight: 600;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: -3px;
+  background-color: #0a6550;
+  transition: 0.2s all ease-in-out;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.linkFooter {
+  cursor: pointer;
+  position: relative;
+  color: #1c1c1c;
+
+  font-weight: 600;
+}
+
+.linkFooter::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: -3px;
+  background-color: #0a6550;
+  transition: 0.2s all ease-in-out;
+}
+
+.linkFooter:hover::after {
+  width: 100%;
+}
+
+/* .bBox {
+  background-image: url(./assets/bigBox.png);
+  width: 500px;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.sBox {
+  background-image: url(./assets/smallBox.png);
+  width: 400px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sBoxGr {
+  background-image: url(./assets/sBoxGr.png);
+  width: 400px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.shopHeader {
+  background-image: url(./assets/shopHeader.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); /* Adjust the opacity (fourth parameter) as needed */
+}
+
+.price input::-webkit-outer-spin-button,
+.price input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.price input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.stockSwitch .check {
+  position: relative;
+  background: linear-gradient(90deg, rgb(15, 15, 15), #b9b8b8);
+  line-height: 0;
+  font-size: 25px;
+}
+
+.stockSwitch .check input[type="checkbox"],
+.stockSwitch .check label,
+.stockSwitch .check label::before,
+.stockSwitch .check label::after {
+  appearance: none;
+  display: inline-block;
+  font-size: inherit;
+  border-radius: 1em;
+  border: 0;
+  transition: 0.35s ease-in-out;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.stockSwitch .check {
+  appearance: none;
+  display: inline-block;
+  border-radius: 1em;
+  border: 0;
+  transition: 0.35s ease-in-out;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.stockSwitch .check label {
+  width: 2.2em;
+  height: 1em;
+  background: #d7d7d7;
+  overflow: hidden;
+}
+
+.stockSwitch .check input[type="checkbox"] {
+  position: absolute;
+  z-index: 1;
+  width: 0.8em;
+  height: 0.8em;
+  top: 0.1em;
+  left: 0.1em;
+  background: linear-gradient(45deg, #dedede, #ffffff);
+  box-shadow: 0 6px 7px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+.stockSwitch .check input[type="checkbox"]:checked {
+  left: 1.3em;
+}
+
+.stockSwitch .check input[type="checkbox"]:checked + label {
+  background: transparent;
+}
+
+.stockSwitch .check label::before,
+.stockSwitch .check label::after {
+  content: "· ·";
+  position: absolute;
+  overflow: hidden;
+  left: 0.5em;
+  top: 0.5em;
+  height: 1em;
+  letter-spacing: -0.04em;
+  color: #9b9b9b;
+  font-family: "Times New Roman", serif;
+  z-index: 2;
+  font-size: 0.6em;
+  border-radius: 0;
+  transform-origin: 0 0 -0.5em;
+  backface-visibility: hidden;
+}
+
+.stockSwitch .check label::after {
+  content: "?";
+  top: 0.65em;
+  left: 0.6em;
+  height: 0.1em;
+  width: 0.35em;
+  font-size: 0.2em;
+  transform-origin: 0 0 -0.4em;
+}
+
+.stockSwitch .check input[type="checkbox"]:checked + label::before,
+.stockSwitch .check input[type="checkbox"]:checked + label::after {
+  left: 2.55em;
+  top: 0.4em;
+  line-height: 0.1em;
+  transform: rotateY(360deg);
+}
+
+.stockSwitch .check input[type="checkbox"]:checked + label::after {
+  height: 0.16em;
+  top: 0.55em;
+  left: 2.6em;
+  font-size: 0.6em;
+  line-height: 0;
+}
+
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Poppins";
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+.paginationBttns a {
+  background-color: transparent;
+  color: #0a6550;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #0a6550;
+}
+
+.paginationBttns a:hover {
+  background-color: #0a6550;
+  color: #fff;
+}
+
+.paginationActive a {
+  background-color: #0a6550;
+  color: #fff;
+}
+.textButton {
+  color: white;
+  background-color: #0a6550;
+  border-radius: 0.5rem;
+}
+.textButton:hover {
+  color: white;
+  background-color: #093512;
+}
+.AboutSection {
+  background-image: url(./assets/section4.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
