@@ -21,6 +21,9 @@ import Cookies from 'js-cookie';
 
 const Navbar = () => {
   const {  setCategoryFilter,setGender } = useContext(ProductFilterContext);
+  // get current url to view product page if it is not in the product page 
+  const currentUrl = window.location.pathname;
+  console.log("Current URL : ",currentUrl);
  
   const sx = {
     "& .MuiBadge-badge": {
@@ -167,13 +170,13 @@ const Navbar = () => {
             All Jewellery
           </NavLink>
           {/* <NavLink className="link">New Drops</NavLink> */}
-          <NavLink className="link" onClick={() => setCategoryFilter('chains')}>Chains</NavLink>
-          <NavLink className="link" onClick={() => setGender('women')}>Women</NavLink>
-          <NavLink className="link" onClick={() => setCategoryFilter('collabs')}>Collabs</NavLink>
-          <NavLink className="link" onClick={() => setCategoryFilter('watches')}>Watches</NavLink>
+          <NavLink to={currentUrl !== "/shop/1" ? "/shop/1" : currentUrl} className="link" onClick={() => setCategoryFilter('chains')}>Chains</NavLink>
+          <NavLink to={currentUrl !== "/shop/1" ? "/shop/1" : currentUrl} className="link" onClick={() => setGender('women')}>Women</NavLink>
+          <NavLink to={currentUrl !== "/shop/1" ? "/shop/1" : currentUrl} className="link" onClick={() => setCategoryFilter('collabs')}>Collabs</NavLink>
+          <NavLink to={currentUrl !== "/shop/1" ? "/shop/1" : currentUrl} className="link" onClick={() => setCategoryFilter('watches')}>Watches</NavLink>
           {/* <NavLink className="link">Solid gold</NavLink> */}
-          <NavLink className="link" onClick={() => setCategoryFilter('custom')}>Customized</NavLink>
-          <NavLink className="link" onClick={() => setGender('men')}>Mens</NavLink>
+          <NavLink to={currentUrl !== "/shop/1" ? "/shop/1" : currentUrl} className="link" onClick={() => setCategoryFilter('custom')}>Customized</NavLink>
+          <NavLink to={currentUrl !== "/shop/1" ? "/shop/1" : currentUrl} className="link" onClick={() => setGender('men')}>Mens</NavLink>
         </div>
         {menuOpen && (
           <motion.div
