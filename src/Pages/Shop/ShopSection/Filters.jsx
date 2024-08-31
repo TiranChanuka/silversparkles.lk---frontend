@@ -22,7 +22,7 @@ const Filters = () => {
   // product width expand
   const [prWidthEx, setPrWidthEx] = useState(false);
 
-  const {setCategoryFilter,setColor,setPriceMax,setPriceMin} = useContext(ProductFilterContext);
+  const {setCategoryFilter,setColor,setPriceMax,setPriceMin,setStyle,setIcedProduct} = useContext(ProductFilterContext);
 
   const handlePriceMin = (e) => {
     setPriceMin(e.target.value);
@@ -30,6 +30,16 @@ const Filters = () => {
 
   const handlePriceMax = (e) => {
     setPriceMax(e.target.value);
+  }
+
+  // handle styles 
+  const handleStyle = (e) => {
+    setStyle(e.target.value);
+  }
+
+  // handle Iced Product 
+  const handleIcedProduct = (e) => {
+    setIcedProduct(e.target.value);
   }
 
 
@@ -157,87 +167,87 @@ const Filters = () => {
             {/* item 1 */}
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-[5px]">
-                <input type="radio" name="ps" id="cuban" />
-                <label className="cursor-pointer" htmlFor="cuban">
+                <input type="radio" name="ps" id="cuban" value="Cuban" onChange={handleStyle}/>
+                <label className="cursor-pointer" htmlFor="cuban" >
                   Cuban
                 </label>
               </div>
 
               {/* avialable products */}
-              <span>(10)</span>
+              {/* <span>(10)</span> */}
             </div>
 
             {/* item 2 */}
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-[5px]">
-                <input type="radio" name="ps" id="tennis" />
+                <input type="radio" name="ps" id="tennis" value="Tennis" onChange={handleStyle} />
                 <label className="cursor-pointer" htmlFor="tennis">
                   Tennis
                 </label>
               </div>
 
               {/* avialable products */}
-              <span>(10)</span>
+              {/* <span>(10)</span> */}
             </div>
 
             {/* item 3 */}
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-[5px]">
-                <input type="radio" name="ps" id="figaro" />
+                <input type="radio" name="ps" id="figaro" value="Figaro" onChange={handleStyle} />
                 <label className="cursor-pointer" htmlFor="figaro">
                   Figaro
                 </label>
               </div>
 
               {/* avialable products */}
-              <span>(10)</span>
+              {/* <span>(10)</span> */}
             </div>
 
             {/* item 4 */}
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-[5px]">
-                <input type="radio" name="ps" id="rope" />
+                <input type="radio" name="ps" id="rope" value="Rope" onChange={handleStyle} />
                 <label className="cursor-pointer" htmlFor="rope">
                   Rope
                 </label>
               </div>
 
               {/* avialable products */}
-              <span>(10)</span>
+              {/* <span>(10)</span> */}
             </div>
 
             {/* item 5 */}
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-[5px]">
-                <input type="radio" name="ps" id="palm" />
+                <input type="radio" name="ps" id="palm" value="Palm" onChange={handleStyle}/>
                 <label className="cursor-pointer" htmlFor="palm">
                   Palm
                 </label>
               </div>
 
               {/* avialable products */}
-              <span>(10)</span>
+              {/* <span>(10)</span> */}
             </div>
 
             {/* item 6 */}
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-[5px]">
-                <input type="radio" name="ps" id="our" />
+                <input type="radio" name="ps" id="our" value="Our" onChange={handleStyle} />
                 <label className="cursor-pointer" htmlFor="our">
                   Our Exclusive
                 </label>
               </div>
 
               {/* avialable products */}
-              <span>(10)</span>
+              {/* <span>(10)</span> */}
             </div>
           </motion.div>
         )}
       </div>
 
-      {/* In stock */}
-      <div className="flex items-center justify-between border-black border-solid border-b-[1px] pb-[20px]">
-        {/* title */}
+
+      {/* <div className="flex items-center justify-between border-black border-solid border-b-[1px] pb-[20px]">
+      
         <span className="Outfit text-[25px] font-[500]">In Stock</span>
 
         <div className="stockSwitch">
@@ -246,7 +256,7 @@ const Filters = () => {
             <label htmlFor="check"></label>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Iced product */}
       <div className="flex flex-col gap-[10px] border-black border-solid border-b-[1px] pb-[20px]">
@@ -275,7 +285,7 @@ const Filters = () => {
             {/* item 1 */}
             <div className="Poppins flex justify-between">
               <div className=" flex items-center gap-[5px]">
-                <input type="radio" id="yes" name="iced" />
+                <input type="radio" id="yes" name="iced" value={true} onChange={handleIcedProduct} />
                 <label htmlFor="yes" className="cursor-pointer">
                   Yes
                 </label>
@@ -288,7 +298,7 @@ const Filters = () => {
             {/* item 2 */}
             <div className="Poppins flex justify-between">
               <div className=" flex items-center gap-[5px]">
-                <input type="radio" id="no" name="iced" />
+                <input type="radio" id="no" name="iced" value={false} onChange={handleIcedProduct} />
                 <label htmlFor="no" className="cursor-pointer">
                   No
                 </label>
@@ -302,68 +312,7 @@ const Filters = () => {
       </div>
 
       {/* product width */}
-      <div className="flex flex-col gap-[10px]">
-        {/* title */}
-        <div className="flex items-center justify-between">
-          <span className="Outfit text-[25px] font-[500]">Product Width</span>
-
-          {prWidthEx ? (
-            <div className="cursor-pointer" onClick={() => setPrWidthEx(false)}>
-              <KeyboardArrowUpIcon style={{ fontSize: 40 }} />
-            </div>
-          ) : (
-            <div className="cursor-pointer" onClick={() => setPrWidthEx(true)}>
-              <KeyboardArrowDownIcon style={{ fontSize: 40 }} />
-            </div>
-          )}
-        </div>
-
-        {/* items */}
-        {prWidthEx && (
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="Poppins flex flex-col gap-[10px]"
-          >
-            {/* item 1 */}
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-[5px]">
-                <input type="radio" id="4" name="width" />
-                <label htmlFor="4" className="cursor-pointer">{`< 4mm`}</label>
-              </div>
-
-              <span>(10)</span>
-            </div>
-
-            {/* item 2 */}
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-[5px]">
-                <input type="radio" id="5" name="width" />
-                <label
-                  htmlFor="5"
-                  className="cursor-pointer"
-                >{`5mm - 9mm`}</label>
-              </div>
-
-              <span>(10)</span>
-            </div>
-
-            {/* item 3 */}
-
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-[5px]">
-                <input type="radio" id="10" name="width" />
-                <label
-                  htmlFor="10"
-                  className="cursor-pointer"
-                >{`> 10mm`}</label>
-              </div>
-
-              <span>(10)</span>
-            </div>
-          </motion.div>
-        )}
-      </div>
+     
     </div>
   );
 };
