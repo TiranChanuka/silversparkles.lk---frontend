@@ -17,6 +17,7 @@ import { Spin } from "antd";
 import Cookie from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Cookies from "js-cookie";
 
 
 const Product = () => {
@@ -35,20 +36,8 @@ const Product = () => {
   const [submitting, setSubmitting] = useState(false);
 
 
-  // calculated total reviews 
-  const calTotalReviews = () => {
-    let total = 0;
-    if (data && data.review) {
-      data.review.forEach((review) => {
-        total += review.one || 0;
-        total += review.two || 0;
-        total += review.three || 0;
-        total += review.four || 0;
-        total += review.five || 0;
-      });
-    }
-    setTotalReviews(total);
-  };
+
+
 
 
 
@@ -93,7 +82,7 @@ const Product = () => {
 
   }
 
-  console.log("Total Reviews : ", totalReviews);  
+  // console.log("Total Reviews : ", totalReviews);  
 
   // selected product image
 
@@ -134,6 +123,28 @@ const Product = () => {
 
   }
     , []);
+
+
+    // calculated total reviews 
+    const calTotalReviews = () => {
+      let total = 0;
+      data && data.review && data.review.map((review) => {
+        total += Number(review.one || 0);
+        total += Number(review.two || 0);
+        total += Number(review.three || 0);
+        total += Number(review.four || 0);
+        total += Number(review.five || 0);
+      });
+      return total;
+    };
+
+  console.log("Total Reviews : ", calTotalReviews());
+
+  const calReviewPrecent = (review) => {
+    const total = calTotalReviews();
+    return (review / total) * 100;
+  }
+
 
   return (
     isLoading ? (
@@ -221,7 +232,7 @@ const Product = () => {
               </div>
 
               <div>
-                <span className="text-[18px] font-[500]">{totalReviews && totalReviews}</span>
+                <span className="text-[18px] font-[500]">{calTotalReviews()}</span>
               </div>
             </div>
 
@@ -326,8 +337,11 @@ const Product = () => {
             {/* buttons */}
             <div className="flex justify-between gap-[20px] mt-[50px]">
               <Link
-                to={"/checkout"}
+                to={Cookies.get('token') ? `/checkout/` : "/login"}
                 className="py-[10px] px-[20px] textButton border-[#0a6550] flex items-center justify-center border-solid border-[1px] cursor-pointer w-full transition-colors"
+                onClick={() => {
+                  Cookies.get('token') ? "" : toast.error("Please LogIn After buying this Product")
+                }}
               >
                 <span>Buy Now</span>
               </Link>
@@ -505,14 +519,14 @@ const Product = () => {
 
                       <div className="w-[300px]">
                         <Progress
-                          percent={50}
+                          percent={calReviewPrecent(data && data.review && data.review[0].five || 0)}  
                           showInfo={false}
                           strokeColor={"#FF9000"}
                         />
                       </div>
 
                       <div>
-                        <span>4 Reviews</span>
+                        <span>{data && data.review && data.review[0].five || 0} Reviews</span>
                       </div>
                     </div>
 
@@ -523,14 +537,14 @@ const Product = () => {
 
                       <div className="w-[300px]">
                         <Progress
-                          percent={40}
+                          percent={calReviewPrecent(data && data.review && data.review[0].four || 0)}
                           showInfo={false}
                           strokeColor={"#FF9000"}
                         />
                       </div>
 
                       <div>
-                        <span>3 Reviews</span>
+                        <span>{data && data.review && data.review[0].four || 0} Reviews</span>
                       </div>
                     </div>
 
@@ -541,14 +555,14 @@ const Product = () => {
 
                       <div className="w-[300px]">
                         <Progress
-                          percent={30}
+                          percent={calReviewPrecent(data && data.review[0].three || 0)}
                           showInfo={false}
                           strokeColor={"#FF9000"}
                         />
                       </div>
 
                       <div>
-                        <span>3 Reviews</span>
+                        <span>{data && data.review && data.review[0].three || 0} Reviews</span>
                       </div>
                     </div>
 
@@ -559,14 +573,14 @@ const Product = () => {
 
                       <div className="w-[300px]">
                         <Progress
-                          percent={20}
+                          percent={calReviewPrecent(data && data.review && data.review[0].two || 0)}
                           showInfo={false}
                           strokeColor={"#FF9000"}
                         />
                       </div>
 
                       <div>
-                        <span>2 Reviews</span>
+                        <span>{data && data.review && data.review[0].two || 0 } Reviews</span>
                       </div>
                     </div>
 
@@ -577,14 +591,14 @@ const Product = () => {
 
                       <div className="w-[300px]">
                         <Progress
-                          percent={10}
+                          percent={calReviewPrecent(data && data.review && data.review[0].one || 0)}
                           showInfo={false}
                           strokeColor={"#FF9000"}
                         />
                       </div>
 
                       <div>
-                        <span>1 Reviews</span>
+                        <span>{data && data.review && data.review[0].one || 0} Reviews</span>
                       </div>
                     </div>
                     <div className="mt-[15px]">

@@ -9,6 +9,8 @@ import CheckoutCard from "./CheckoutCard";
 import { checkData } from "./CheckoutData";
 import RecentlyView from "../../Components/Recently View/RecentlyView";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+
 const Checkout = () => {
   // gender selector
   const [selectedGen, setSelectdGen] = useState(0);
