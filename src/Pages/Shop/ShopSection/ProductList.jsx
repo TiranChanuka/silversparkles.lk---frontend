@@ -11,7 +11,7 @@ import { ProductFilterContext } from "../../../Contexts/ProductFilterContext";
 
 const ProductList = () => {
 
-  const {categoryFilter,gender,color,priceMax,priceMin} = useContext(ProductFilterContext);
+  const {categoryFilter,gender,color,priceMax,priceMin,style,icedProduct} = useContext(ProductFilterContext);
 
   const [pageNumber, setPageNumber] = useState(0);
   const [isProduct, setIsProduct] = useState(false);
@@ -24,6 +24,9 @@ const ProductList = () => {
   console.log("Category Filter", categoryFilter);
   console.log("Gender Filter : ",gender);
   console.log("Color : " , color);
+  console.log("Style : " ,style);
+  console.log("Iced Product : ", icedProduct);
+  
   if (categoryFilter !== '') {
     queries += `category=${categoryFilter}&`;
   }
@@ -46,16 +49,17 @@ const ProductList = () => {
     queries = queries + `priceMin=${priceMin}&`;
   }
 
-  // if (style !== '') {
-  //   queries = queries + `style=${style}&`;
-  // }
+  if (style !== '') {
+    queries = queries + `style=${style}&`;
+  }
 
-  // if (icedProduct !== false) {
-  //   queries = queries + `iced_product=${icedProduct}&`;
-  // }
+  if (icedProduct !== false) {
+    queries = queries + `iced_product=${icedProduct}&`;
+  }
 
   const fetchData = () => {
     let url = `${api}/api/product/filter?${queries}`;
+    console.log("URL : ", url);
     axios.get(url)
       .then((res) => {
         setIsLoading(false);
@@ -76,7 +80,7 @@ const ProductList = () => {
 
   useEffect(() => {
     fetchData();
-  }, [categoryFilter,gender,color,priceMax,priceMin]);
+  }, [categoryFilter,gender,color,priceMax,priceMin,style,icedProduct]);
 
   const productsPerPage = 12;
   const pagesVisited = pageNumber * productsPerPage;
