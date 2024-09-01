@@ -2,18 +2,26 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import LoginForm from "../Pages/Login/Login"
+import Cookies from 'js-cookie';
 
 
 const HandleAuthRoute = ({ children }) => {
     const [isLoginFormVisible, setLoginFormVisible] = useState(false);
     // const loggedToken = localStorage.getItem('token') || null;
-    // const isAuthenticated = loggedToken !== null;
+    let isAuthenticated =  null;
     // eslint-disable-next-line no-unused-vars
 
     // Api host domain 
 
     // get token from the Cookies 
-    const loggedToken = Cookies.get('token');
+
+    if (Cookies.get('token')) {
+        const loggedToken = Cookies.get('token');
+        isAuthenticated = loggedToken !== null;
+        
+    }else {
+        isAuthenticated = null;
+    }
 
     const location = useLocation();
 
