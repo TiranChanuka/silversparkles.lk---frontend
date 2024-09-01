@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { ProductFilterContext } from "../../../Contexts/ProductFilterContext";
 // import { color } from "framer-motion";
+import { Spin } from "antd";
 
 
 const ProductList = () => {
@@ -102,7 +103,14 @@ const ProductList = () => {
   };
 
   return (
-    <div className="productList flex flex-wrap gap-[50px] justify-center md:justify-center  left-0 right-0 ">
+    isLoading ? (
+      <div className="md:px-[50px] px-[20px] mt-[50px] mb-[100px]">
+        <div className="flex justify-center items-center h-[300px]">
+          <Spin size="large" />
+        </div>
+      </div>
+    ) : (
+      <div className="productList flex flex-wrap gap-[50px] justify-center md:justify-center  left-0 right-0 ">
       {displayProducts}
       <ReactPaginate
         previousLabel={"Previous"}
@@ -117,6 +125,7 @@ const ProductList = () => {
 
       />
     </div>
+    )
   );
 };
 
