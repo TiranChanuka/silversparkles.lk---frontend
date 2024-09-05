@@ -2,6 +2,7 @@
 import { Col, Row } from "antd";
 import { motion } from "framer-motion";
 import Section9 from "../Home/Section9";
+import shamran from "../../assets/client/shane.jpg"
 
 const About = () => {
     return (
@@ -67,39 +68,41 @@ const About = () => {
                 </Col>
             </Row>
             <div className="bg-[#2a2a2a] text-white">
-                <div className="pb-[20px] md:pl-[50px] p-5">
-                    <motion.h1
-                        initial={{ opacity: 0, x: -200 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="Poppins uppercase text-[35px] font-[700]"
-                    >
-                        Founder
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, x: -200 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="Mont capitalize text-[20px] font-[500]"
-                    >
-                        Shamran Zacky
-                    </motion.p>
-                </div>
-                <div className="flex md:flex-row flex-col justify-center md:pl-[50px] p-3 md:pb-7" >
-                    <div className="w-full flex justify-center items-center">IMG of Shamran</div>
-                    <div className="w-full pr-5">
+                <div className="flex flex-col md:flex-row justify-center items-center p-10">
+                    <div className="w-3/6 flex justify-center items-center">
+                        <img src={shamran} alt="" width={300} className="rounded-md" />
+                    </div>
+                    <div className="w-full">
+                        <div className="pb-[20px]">
+                            <motion.h1
+                                initial={{ opacity: 0, x: -200 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5 }}
+                                className="Poppins uppercase text-[35px] font-[700]"
+                            >
+                                Founder
+                            </motion.h1>
+                            <motion.p
+                                initial={{ opacity: 0, x: -200 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
+                                className="Mont capitalize text-[20px] font-[500]"
+                            >
+                                Shamran Zacky
+                            </motion.p>
+                        </div>
+
                         <p>Shamran Zacky Jeweller is a prominent jeweller specializing in creating iced out jewellery. With a
                             passion for creating bold and unique pieces, our brand is dedicated to providing our clients with
                             the highest quality, most dazzling jewellery.</p>
                         <p className="hidden md:block mt-2"> Our collection features an extensive range of iced out jewellery, from necklaces and pendants to
                             bracelets, rings, and earrings. Each piece is expertly crafted with precision and care to create an
                             unforgettable sparkle. Shamran Zacky Jeweller, committed to using only the finest quality
-                            materials, including precious metals as in silver, white gold , gold and genuine high quality gem
+                            materials, including precious metals as in silver, white gold, gold and genuine high-quality gem
                             stones and diamonds, to ensure that our clients receive the very best in luxury jewellery. Our
                             designs are inspired by the latest trends and are constantly evolving to reflect the changing styles
                             and tastes of our clients.</p>
                     </div>
-
                 </div>
             </div>
             <Section9 />
