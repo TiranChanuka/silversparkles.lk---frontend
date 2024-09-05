@@ -19,11 +19,9 @@ const Contact = () => {
               <IoLocationOutline className="text-[30px]" />
             </div>
             <div className="text-[24px] font-[400] flex flex-col">
-              <span>No. 101/A</span>
-              <span>Lorem ipsum,</span>
-              <span>Lorem ipsum,</span>
-              <span>Lorem 1001,</span>
-              <span>ipsum</span>
+              <span>No 30, </span>
+              <span>Dr Lester James Peiris Mawatha,</span>
+              <span>Colombo 5</span>
             </div>
           </div>
 
@@ -42,8 +40,9 @@ const Contact = () => {
             <div>
               <LuPhone className="text-[30px]" />
             </div>
-            <div>
-              <span className="text-[24px] font-[400]">011 2345 678</span>
+            <div className="flex flex-col">
+              <span className="text-[24px] font-[400]">0778884033</span>
+              <span className="text-[24px] font-[400]">0112555515</span>
             </div>
           </div>
         </div>
@@ -57,12 +56,14 @@ const Contact = () => {
               type="text"
               placeholder="First Name"
               className="p-[10px] bg-gray-200 outline-none w-full"
+              required
             />
 
             <input
               type="text"
               placeholder="Last Name"
               className="p-[10px] bg-gray-200 outline-none w-full"
+              required
             />
           </div>
           <div>
@@ -70,6 +71,7 @@ const Contact = () => {
               type="email"
               placeholder="Email"
               className="p-[10px] bg-gray-200 outline-none w-full"
+              required
             />
           </div>
           <div>
@@ -80,6 +82,7 @@ const Contact = () => {
               rows="10"
               placeholder="Message"
               className="bg-gray-200 p-[10px] w-full resize-none outline-none"
+              required
             ></textarea>
           </div>
 
