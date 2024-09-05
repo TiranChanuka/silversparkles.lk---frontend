@@ -9,22 +9,22 @@ import CloseIcon from "@mui/icons-material/Close";
 import { motion } from "framer-motion";
 import { Link, NavLink } from "react-router-dom";
 import { FaHeart } from "react-icons/fa6";
-import LogoWhite from "../../assets/logow.png";
+import LogoWhite from "../../assets/logo/logow.png";
 import LoginForm from './../../Pages/Login/Login';
 import RegisterForm from "../../Pages/Login/Register";
 import ForgetPasswordForm from "../../Pages/Login/ForgetPassword";
 import { ProductFilterContext } from "../../Contexts/ProductFilterContext";
-import { useContext } from "react"; 
+import { useContext } from "react";
 
 // cookie library
 import Cookies from 'js-cookie';
 
 const Navbar = () => {
-  const {  setCategoryFilter,setGender } = useContext(ProductFilterContext);
+  const { setCategoryFilter, setGender } = useContext(ProductFilterContext);
   // get current url to view product page if it is not in the product page 
   const currentUrl = window.location.pathname;
-  console.log("Current URL : ",currentUrl);
- 
+  console.log("Current URL : ", currentUrl);
+
   const sx = {
     "& .MuiBadge-badge": {
       color: "white",
@@ -105,7 +105,7 @@ const Navbar = () => {
     <div className="Outfit bg-black items-center px-[20px] md:px-[50px]">
       <div className="flex justify-between text-white items-center ">
         <NavLink to={"/"} className="cursor-pointer p-5">
-          <img src={LogoWhite} alt="Logo" className=" w-[75%]" />
+          <img src={LogoWhite} width={200} alt="Logo" />
         </NavLink>
         <div className="flex gap-[10px] items-center">
           {/* <div className="cursor-pointer">
@@ -166,7 +166,7 @@ const Navbar = () => {
           </div>
         )}
         <div className="md:flex hidden items-center justify-between ">
-          <NavLink to={"/shop/1"} className="link" onClick={() => {setCategoryFilter('all');setGender('')}}>
+          <NavLink to={"/shop/1"} className="link" onClick={() => { setCategoryFilter('all'); setGender('') }}>
             All Jewellery
           </NavLink>
           {/* <NavLink className="link">New Drops</NavLink> */}
